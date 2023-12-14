@@ -12,35 +12,63 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="160dp"
         android:layout_marginVertical="5dp"
         android:background="@drawable/bg_pokemon_item"
-        android:padding="15dp">
+        android:padding="10dp">
 
-        <TextView
-            android:id="@+id/tvPokemonHp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textColor="@color/white"
+        <LinearLayout
+            android:layout_width="210dp"
+            android:layout_height="126dp"
+            android:layout_marginStart="22dp"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tvNamePokemon"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.5" />
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/tvNamePokemon"
-            android:layout_width="150dp"
+            <TextView
+                android:id="@+id/tvNamePokemon"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:textSize="17dp"
+                android:textAllCaps="true"
+                android:layout_marginTop="8dp"
+                android:lines="@integer/material_motion_duration_long_2"
+                android:text="@{pokemon.name}"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/tvPokemonHp"
+                android:textSize="17dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@{`Type: `+pokemon.apiTypesAsString}"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/tvHp"
+                android:textSize="17dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@{`HP: `+pokemon.stats.HP}"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:text="@{pokemon.name}"
-            android:lines="@integer/material_motion_duration_long_2"
-            android:textColor="@color/white"
+            android:layout_marginEnd="32dp"
+            android:src="@{pokemon.image}"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tvPokemonHp"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.5" />
+            tools:srcCompat="@tools:sample/avatars" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

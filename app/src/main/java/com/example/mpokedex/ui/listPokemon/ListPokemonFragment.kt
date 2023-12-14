@@ -12,6 +12,7 @@ import com.example.mpokedex.R
 import com.example.mpokedex.adapters.PokemonAdapter
 import com.example.mpokedex.bo.Pokemon
 import com.example.mpokedex.databinding.FragmentListPokemonBinding
+import com.squareup.picasso.Picasso
 
 class ListPokemonFragment : Fragment() {
     lateinit var binding: FragmentListPokemonBinding
@@ -42,7 +43,7 @@ class ListPokemonFragment : Fragment() {
 
 
         binding.rvPokemonRecycler.adapter = PokemonAdapter(pokemons){
-            val direction = ListPokemonFragmentDirections.listTodetails(it)
+            val direction = ListPokemonFragmentDirections.actionListPokemonFragmentToDetailsFragment(it)
             Navigation.findNavController(view).navigate(direction)
         }
 

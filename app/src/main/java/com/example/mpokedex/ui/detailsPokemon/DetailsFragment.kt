@@ -35,6 +35,7 @@ class DetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val pokemon = args.pokemon
+        binding.pokemon= pokemon
         binding.lifecycleOwner=this
         Picasso.get().load(pokemon.image).into(binding.imageView)
         var image = binding.imageView

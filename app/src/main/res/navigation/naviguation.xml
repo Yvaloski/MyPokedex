@@ -4,22 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/naviguation"
     app:startDestination="@id/listPokemonFragment">
-
     <fragment
-        android:id="@+id/listPokemonFragment"
-        android:name="com.example.mpokedex.ui.listPokemon.ListPokemonFragment"
-        android:label="fragment_list_pokemon"
-        tools:layout="@layout/fragment_list_pokemon" >
-        <action
-            android:id="@+id/listTodetails"
-            app:destination="@id/detailsFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/detailsFragment"
+        android:id="@+id/listTodetails"
         android:name="com.example.mpokedex.ui.detailsPokemon.DetailsFragment"
         android:label="DetailsFragment" >
         <argument
             android:name="pokemon"
             app:argType="com.example.mpokedex.bo.Pokemon" />
+    </fragment>
+    <fragment
+        android:id="@+id/listPokemonFragment"
+        android:name="com.example.mpokedex.ui.listPokemon.ListPokemonFragment"
+        android:label="ListPokemonFragment" >
+        <action
+            android:id="@+id/action_listPokemonFragment_to_detailsFragment"
+            app:destination="@id/listTodetails" />
     </fragment>
 </navigation>
