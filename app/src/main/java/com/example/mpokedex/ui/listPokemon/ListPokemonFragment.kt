@@ -31,10 +31,22 @@ class ListPokemonFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
         vm.getAllPokemons().observe(viewLifecycleOwner){
+
             displayPokemons(it,view)
+        }
+
+
+        binding.btnSearch.setOnClickListener{
+            if (binding.etSearchPokemon.editableText.toString().isNotEmpty()){
+
+                vm.getPokemonByQuery(binding.etSearchPokemon.editableText.toString()).observe(viewLifecycleOwner){
+
+
+                    displayPokemons(it,view)
+                }
+
+            }
         }
 
     }

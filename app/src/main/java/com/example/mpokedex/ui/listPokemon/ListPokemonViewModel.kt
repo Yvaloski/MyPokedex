@@ -20,7 +20,19 @@ class ListPokemonViewModel : ViewModel() {
         }
         return listPokemons
     }
-
+    fun getPokemonByQuery(q:String): MutableLiveData<List<Pokemon>> {
+        viewModelScope.launch {
+            val buffer = PokemonService.PokemonApi.retrofitService.getAllPokemons()
+            val pokemonWithQ = mutableListOf<Pokemon>()
+            // pokemons.value
+            buffer.forEach { if (it.name.contains(q, ignoreCase = true)){
+                pokemonWithQ.add(it)
+            }
+                listPokemons.value = pokemonWithQ
+            }
+        }
+        return listPokemons
+    }
 /*
      fun getAllTypes():MutableLiveData<List<Type>>{
          viewModelScope.launch { listTypes.value = PokemonService.PokemonApi.retrofitService.getAllTypes() }
