@@ -33,14 +33,13 @@
             android:id="@+id/textInputLayout"
             android:layout_width="294dp"
             android:layout_height="66dp"
-            android:focusedByDefault="false"
             android:focusable="true"
             android:focusableInTouchMode="true"
+            android:focusedByDefault="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btnSearch"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rvPokemonRecycler">
+            app:layout_constraintStart_toStartOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etSearchPokemon"
@@ -49,8 +48,7 @@
                 android:layout_marginHorizontal="10dp"
 
                 android:focusedByDefault="false"
-                android:hint="search"
-                 />
+                android:hint="search" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -58,14 +56,27 @@
             android:id="@+id/rvPokemonRecycler"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="@color/black"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/bg_pokemon_item"
+            android:padding="5dp"
             android:paddingHorizontal="5dp"
             app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="POKEDEX"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
